@@ -90,10 +90,13 @@ function slugify(value: string): string {
     .slice(0, 90);
 }
 
-function isAllowedOrigin(originCandidate: string, appUrl: string): boolean {
+function isAllowedOrigin(originCandidate: string, appUrl: string, requestHost?: string): boolean {
   try {
     const url = new URL(originCandidate);
-    if (url.protocol === 'https:' && url.hostname.endsWith('.run.app')) return true;
+    if (url.protocol === 'https:' && (url.hostname.endsWith('.run.app') || url.hostname.endsWith('.vercel.app'))) {
+      return true;
+    }
+    if (requestHost && url.host === requestHost) return true;
     if (url.hostname === 'localhost' || url.hostname === '127.0.0.1') return true;
     if (appUrl && appUrl !== 'MY_APP_URL') {
       const configured = new URL(appUrl);
@@ -264,12 +267,13 @@ adminRouter.get('/auth/google/url', loginRateLimiter, (req, res) => {
   }
 
   const requestedOrigin = typeof req.query.origin === 'string' ? req.query.origin.trim() : '';
+  const reqHost = req.get('host');
   const fallbackOrigin =
-    cfg.appUrl && cfg.appUrl !== 'MY_APP_URL'
+    cfg.appUrl && cfg.appUrl !== 'MY_APP_URL' && cfg.appUrl !== 'http://localhost:3000'
       ? cfg.appUrl.replace(/\/$/, '')
-      : `${req.protocol}://${req.get('host')}`;
+      : `${req.protocol}://${reqHost}`;
 
-  const activeOrigin = isAllowedOrigin(requestedOrigin, cfg.appUrl)
+  const activeOrigin = isAllowedOrigin(requestedOrigin, cfg.appUrl, reqHost)
     ? requestedOrigin.replace(/\/$/, '')
     : fallbackOrigin;
 

@@ -48,7 +48,13 @@ export function AdminLoginPage() {
   useEffect(() => {
     const handleMessage = async (event: MessageEvent) => {
       const origin = event.origin;
-      if (!origin.endsWith('.run.app') && !origin.includes('localhost') && !origin.includes('127.0.0.1')) {
+      if (
+        origin !== window.location.origin &&
+        !origin.endsWith('.run.app') &&
+        !origin.endsWith('.vercel.app') &&
+        !origin.includes('localhost') &&
+        !origin.includes('127.0.0.1')
+      ) {
         return;
       }
 

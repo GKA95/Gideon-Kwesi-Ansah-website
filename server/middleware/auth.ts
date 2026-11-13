@@ -2,7 +2,7 @@ import crypto from 'node:crypto';
 import type { Request, Response, NextFunction } from 'express';
 import rateLimit from 'express-rate-limit';
 import { AdminSessionModel, AdminUserModel } from '../db/models.ts';
-import { isDatabaseConnected } from '../db/connection.ts';
+import { connectToDatabase, isDatabaseConnected } from '../db/connection.ts';
 
 export const SESSION_COOKIE_NAME = 'gka_admin_session';
 const SESSION_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours max
@@ -80,6 +80,9 @@ export const contactRateLimiter = rateLimit({
 export async function resolveOptionalAdmin(
   req: AuthenticatedAdminRequest
 ): Promise<boolean> {
+  if (!isDatabaseConnected()) {
+    await connectToDatabase();
+  }
   if (!isDatabaseConnected()) return false;
   const rawToken = req.cookies?.[SESSION_COOKIE_NAME];
   if (!rawToken || typeof rawToken !== 'string') return false;
@@ -123,6 +126,9 @@ export async function requireAdminAuth(
   next: NextFunction
 ): Promise<void> {
   try {
+    if (!isDatabaseConnected()) {
+      await connectToDatabase();
+    }
     if (!isDatabaseConnected()) {
       res.status(503).json({ error: 'Database connection is not active.' });
       return;
