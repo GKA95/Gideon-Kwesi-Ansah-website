@@ -49,14 +49,14 @@ export function AboutPage({ isPreview = false }: { isPreview?: boolean }) {
       />
 
       <section className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#081121]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
             <div className="lg:col-span-8">
               <p className="text-sm font-medium text-sky-700 dark:text-sky-400">About Me</p>
-              <h1 className="mt-2 text-3xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
+              <h1 className="mt-2 text-2xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
                 {about?.fullName || 'Gideon Kwesi Ansah'}
               </h1>
-              <p className="mt-3 text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p className="mt-3 text-[15px] sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
                 Electrical Engineering Graduate | Power System &amp; Energy | Microgrids | Data
                 Analyst | AI Product Builder | Transforming Ideas into Web &amp; Mobile Apps |
                 Virtual Assistant | Educator
@@ -65,7 +65,7 @@ export function AboutPage({ isPreview = false }: { isPreview?: boolean }) {
 
             <div className="lg:col-span-4 flex flex-col gap-4">
               {settings?.profilePhotoUrl ? (
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
+                <div className="aspect-[4/5] max-w-sm lg:max-w-none rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
                   <img
                     src={settings.profilePhotoUrl}
                     alt={about?.fullName || 'Gideon Kwesi Ansah'}
@@ -75,14 +75,14 @@ export function AboutPage({ isPreview = false }: { isPreview?: boolean }) {
                 </div>
               ) : null}
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3">
                 {settings?.cvDocumentUrl ? (
                   <a
                     href={settings.cvDocumentUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     download={settings.cvFileName || 'Gideon_Kwesi_Ansah_CV.pdf'}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold hover:opacity-90 transition-opacity"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download CV</span>
@@ -90,7 +90,7 @@ export function AboutPage({ isPreview = false }: { isPreview?: boolean }) {
                 ) : null}
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 >
                   <span>Contact Me</span>
                   <ArrowRight className="w-4 h-4" />
@@ -101,7 +101,7 @@ export function AboutPage({ isPreview = false }: { isPreview?: boolean }) {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         <div className="divide-y divide-slate-200 dark:divide-slate-800">
           {sections.map((sec) =>
             sec.content ? (

@@ -73,8 +73,8 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
 
       {/* 1. Split Hero Section */}
       <section className="border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#081121]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20 lg:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-20 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
@@ -86,22 +86,22 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
               </p>
 
               <h1
-                className="mt-3 text-3xl sm:text-4xl lg:text-[2.65rem] font-display font-bold tracking-tight text-slate-900 dark:text-white leading-[1.16]"
+                className="mt-2.5 sm:mt-3 text-[1.65rem] leading-[1.22] sm:text-4xl lg:text-[2.65rem] font-display font-bold tracking-tight text-slate-900 dark:text-white lg:leading-[1.16]"
                 style={{ textWrap: 'balance' }}
               >
                 {home?.heroHeadline ||
                   'Building Digital Experiences. Automating Businesses with AI. Turning Data into Insights. Exploring Engineering Innovations.'}
               </h1>
 
-              <p className="mt-5 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+              <p className="mt-4 sm:mt-5 text-[15px] sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
                 {home?.heroSubheadline ||
                   'I work at the intersection of technology, artificial intelligence, data analytics, and electrical engineering. I build digital solutions, explore intelligent automation, analyse data, and apply engineering knowledge to real-world problems.'}
               </p>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
                 <Link
                   to="/projects"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0A192F] text-white hover:bg-[#112240] dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-lg bg-[#0A192F] text-white hover:bg-[#112240] dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
                 >
                   <span>{home?.primaryCtaText || 'Explore My Work'}</span>
                   <ArrowRight className="w-4 h-4" />
@@ -109,7 +109,7 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
 
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800/80 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800/80 text-sm font-semibold transition-colors whitespace-nowrap shrink-0"
                 >
                   {home?.secondaryCtaText || "Let's Work Together"}
                 </Link>
@@ -120,7 +120,7 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     download={settings.cvFileName || 'Gideon_Kwesi_Ansah_CV.pdf'}
-                    className="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-sky-700 dark:hover:text-sky-400 transition-colors whitespace-nowrap shrink-0"
+                    className="inline-flex items-center justify-center gap-1.5 w-full sm:w-auto min-h-[44px] px-3 py-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-sky-700 dark:hover:text-sky-400 transition-colors whitespace-nowrap shrink-0"
                   >
                     <Download className="w-4 h-4" />
                     <span>Download CV</span>
@@ -136,31 +136,31 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
               transition={{ duration: 0.4, delay: 0.08 }}
               className="lg:col-span-5 flex"
             >
-              <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#0D1B2E] overflow-hidden flex flex-col justify-between min-h-[340px] lg:min-h-[420px]">
+              <div className="w-full rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-[#0D1B2E] overflow-hidden flex flex-col justify-between min-h-[260px] sm:min-h-[340px] lg:min-h-[420px]">
                 {settings?.profilePhotoUrl ? (
                   <img
                     src={settings.profilePhotoUrl}
                     alt={settings.profileName || 'Gideon Kwesi Ansah'}
-                    className="w-full h-full object-cover object-top min-h-[340px] lg:min-h-[420px]"
+                    className="w-full h-full object-cover object-top min-h-[260px] sm:min-h-[340px] lg:min-h-[420px]"
                     referrerPolicy="no-referrer"
                   />
                 ) : (
-                  <div className="flex-1 flex flex-col justify-between p-8 bg-gradient-to-br from-[#0A192F] via-[#0F2342] to-[#0B2942] text-white">
+                  <div className="flex-1 flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-[#0A192F] via-[#0F2342] to-[#0B2942] text-white">
                     <div className="flex items-center justify-between text-xs text-slate-300">
                       <span>Profile Portrait</span>
                       <span className="font-mono">GKA</span>
                     </div>
 
-                    <div className="my-auto py-8 flex flex-col items-center text-center">
-                      <div className="w-28 h-28 rounded-full border border-sky-400/40 bg-white/5 flex items-center justify-center">
-                        <span className="text-3xl font-display font-bold tracking-tight text-sky-300">
+                    <div className="my-auto py-6 sm:py-8 flex flex-col items-center text-center">
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-sky-400/40 bg-white/5 flex items-center justify-center">
+                        <span className="text-2xl sm:text-3xl font-display font-bold tracking-tight text-sky-300">
                           GKA
                         </span>
                       </div>
-                      <p className="mt-5 text-lg font-display font-semibold text-white">
+                      <p className="mt-4 sm:mt-5 text-lg font-display font-semibold text-white">
                         {settings?.profileName || 'Gideon Kwesi Ansah'}
                       </p>
-                      <p className="mt-1 text-sm text-slate-300">
+                      <p className="mt-1 text-xs sm:text-sm text-slate-300">
                         BSc Electrical &amp; Electronic Engineering · KNUST
                       </p>
                     </div>
@@ -243,7 +243,7 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
                     {service.capabilities && service.capabilities.length > 0 && (
                       <ul className="mt-4 pt-4 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-600 dark:text-slate-300">
                         {service.capabilities.slice(0, 6).map((cap) => (
-                          <li key={cap} className="truncate">
+                          <li key={cap} className="leading-snug sm:truncate">
                             · {cap}
                           </li>
                         ))}
@@ -463,7 +463,7 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
 
       {/* 8. Call-to-Action Section */}
       <section className="bg-[#0A192F] text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:flex-row lg:items-center justify-between gap-6 sm:gap-8">
           <div className="max-w-2xl">
             <h2
               className="text-2xl sm:text-3xl font-display font-bold tracking-tight"
@@ -471,7 +471,7 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
             >
               {home?.ctaTitle || 'Have a project, research collaboration, or business workflow to build?'}
             </h2>
-            <p className="mt-3 text-base text-slate-300 leading-relaxed">
+            <p className="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
               {home?.ctaBody ||
                 'Reach out to discuss website development, data analytics, AI automation, or electrical engineering collaborations.'}
             </p>
@@ -479,7 +479,7 @@ export function HomePage({ isPreview = false }: { isPreview?: boolean }) {
           <div className="shrink-0">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-sky-500 text-slate-950 font-semibold text-sm hover:bg-sky-400 transition-colors whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-6 py-3.5 rounded-lg bg-sky-500 text-slate-950 font-semibold text-sm hover:bg-sky-400 transition-colors whitespace-nowrap"
             >
               <span>{home?.ctaButtonText || 'Start a Conversation'}</span>
               <ArrowRight className="w-4 h-4" />

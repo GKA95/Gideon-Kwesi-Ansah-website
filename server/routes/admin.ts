@@ -139,6 +139,11 @@ function verifyOAuthState(
 
 function sendOAuthPopupHtml(res: Response, payload: { type: 'GOOGLE_AUTH_SUCCESS' | 'GOOGLE_AUTH_ERROR'; error?: string }) {
   const serialized = JSON.stringify(payload).replace(/</g, '\\u003c');
+  const fallbackTarget =
+    payload.type === 'GOOGLE_AUTH_SUCCESS'
+      ? '/admin/dashboard'
+      : `/admin/login?authError=${encodeURIComponent(payload.error || 'Google sign-in failed.')}`;
+  const serializedTarget = JSON.stringify(fallbackTarget).replace(/</g, '\\u003c');
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(`<!doctype html>
 <html>
@@ -149,10 +154,10 @@ function sendOAuthPopupHtml(res: Response, payload: { type: 'GOOGLE_AUTH_SUCCESS
         window.opener.postMessage(${serialized}, '*');
         window.close();
       } else {
-        window.location.href = '/admin/login';
+        window.location.replace(${serializedTarget});
       }
     </script>
-    <p>${payload.type === 'GOOGLE_AUTH_SUCCESS' ? 'Authentication successful. Closing window...' : 'Authentication could not be completed. You may close this window.'}</p>
+    <p>${payload.type === 'GOOGLE_AUTH_SUCCESS' ? 'Authentication successful. Redirecting...' : 'Authentication could not be completed. Redirecting...'}</p>
   </body>
 </html>`);
 }

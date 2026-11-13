@@ -104,35 +104,35 @@ export function ProjectDetailPage() {
 
       <article>
         <header className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#081121]">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
             <Link
               to="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+              className="inline-flex items-center gap-1.5 min-h-[40px] text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>All Projects</span>
             </Link>
 
-            <p className="mt-6 text-xs font-medium text-sky-700 dark:text-sky-400">
+            <p className="mt-4 sm:mt-6 text-xs font-medium text-sky-700 dark:text-sky-400">
               {project.category}
               {project.status !== 'published' ? ` · ${project.status}` : ''}
             </p>
 
-            <h1 className="mt-2 text-3xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
+            <h1 className="mt-2 text-2xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
               {project.title}
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
               {project.overview || project.shortDescription}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
               {project.liveDemoUrl ? (
                 <a
                   href={project.liveDemoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold hover:opacity-90 transition-opacity"
                 >
                   <span>Live Demonstration</span>
                   <ArrowUpRight className="w-4 h-4" />
@@ -144,7 +144,7 @@ export function ProjectDetailPage() {
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub Repository</span>
@@ -156,7 +156,7 @@ export function ProjectDetailPage() {
                   href={project.demoVideoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-4 py-2.5 rounded-lg border border-slate-300 dark:border-slate-700 text-sm font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 >
                   <span>Watch Demo Video</span>
                   <ArrowUpRight className="w-4 h-4" />

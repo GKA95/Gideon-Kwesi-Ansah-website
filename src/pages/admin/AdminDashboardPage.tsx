@@ -151,7 +151,7 @@ export function AdminDashboardPage() {
                   setActiveTab(sec.id);
                   setSidebarOpen(false);
                 }}
-                className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${
+                className={`w-full min-h-[42px] flex items-center gap-3 px-3 py-2.5 rounded-lg text-xs font-medium transition-colors ${
                   active
                     ? 'bg-[#0A192F] text-white dark:bg-sky-500/15 dark:text-sky-300'
                     : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'
@@ -188,40 +188,41 @@ export function AdminDashboardPage() {
 
       {/* Main Content */}
       <div className="flex-1 min-w-0 flex flex-col">
-        <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#081121] px-4 sm:px-6 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+        <header className="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#081121] px-4 sm:px-6 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
             <button
               type="button"
               onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800"
+              className="lg:hidden min-w-[40px] min-h-[40px] inline-flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 shrink-0"
               aria-label="Open menu"
             >
               <Menu className="w-4 h-4" />
             </button>
-            <div className="text-sm font-medium text-slate-500 dark:text-slate-400">
-              Admin <span className="mx-1">/</span>{' '}
-              <span className="text-slate-900 dark:text-white font-semibold">
+            <div className="text-sm font-medium text-slate-500 dark:text-slate-400 truncate">
+              <span className="hidden sm:inline">Admin / </span>
+              <span className="text-slate-900 dark:text-white font-semibold truncate">
                 {currentSection?.label}
               </span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+              className="min-w-[40px] min-h-[40px] inline-flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               type="button"
               onClick={() => setShowPreview(true)}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-xs font-semibold whitespace-nowrap shrink-0"
+              className="inline-flex items-center gap-1.5 min-h-[40px] px-3 sm:px-3.5 py-2 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-xs font-semibold whitespace-nowrap shrink-0"
             >
               <Eye className="w-3.5 h-3.5" />
-              <span>Preview Draft Site</span>
+              <span className="sm:hidden">Preview</span>
+              <span className="hidden sm:inline">Preview Draft Site</span>
             </button>
           </div>
         </header>

@@ -30,12 +30,12 @@ export function ServicesPage({ isPreview = false }: { isPreview?: boolean }) {
       />
 
       <section className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#081121]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-20">
           <p className="text-sm font-medium text-sky-700 dark:text-sky-400">Services &amp; Capabilities</p>
-          <h1 className="mt-2 text-3xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white max-w-3xl">
+          <h1 className="mt-2 text-2xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white max-w-3xl">
             Technical Solutions Across Software, Data, AI Automation, and Electrical Engineering
           </h1>
-          <p className="mt-4 text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
             Every capability is tailored to clear operational objectives—whether launching a custom
             web platform, analysing business or energy datasets, automating customer workflows, or
             modelling power systems.
@@ -43,7 +43,7 @@ export function ServicesPage({ isPreview = false }: { isPreview?: boolean }) {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 space-y-16">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16 space-y-10 sm:space-y-16">
         {services.map((service, idx) => {
           const visualSrc = getDefaultServiceVisual(service.category, service.visualUrl);
           const related = projects.filter(
@@ -59,7 +59,7 @@ export function ServicesPage({ isPreview = false }: { isPreview?: boolean }) {
               className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0D1B2E] overflow-hidden"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12">
-                <div className="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between gap-6">
+                <div className="lg:col-span-7 p-5 sm:p-10 flex flex-col justify-between gap-6">
                   <div>
                     <div className="flex items-center gap-3 text-xs font-mono tabular-nums text-sky-700 dark:text-sky-400">
                       <span>0{idx + 1}.</span>
@@ -116,13 +116,13 @@ export function ServicesPage({ isPreview = false }: { isPreview?: boolean }) {
                     )}
                   </div>
 
-                  <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4">
+                  <div className="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-between gap-3 sm:gap-4">
                     <Link
                       to={`/contact?service=${encodeURIComponent(service.category)}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold hover:opacity-90 transition-opacity"
+                      className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-5 py-2.5 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold text-center hover:opacity-90 transition-opacity"
                     >
                       <span>Inquire About {service.title}</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4 shrink-0" />
                     </Link>
 
                     {service.aiDemoUrl ? (
@@ -130,7 +130,7 @@ export function ServicesPage({ isPreview = false }: { isPreview?: boolean }) {
                         href={service.aiDemoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-medium text-sky-700 dark:text-sky-400 hover:underline"
+                        className="inline-flex items-center justify-center sm:justify-start min-h-[44px] text-sm font-medium text-sky-700 dark:text-sky-400 hover:underline"
                       >
                         View Demonstration
                       </a>

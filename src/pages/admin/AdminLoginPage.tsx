@@ -21,6 +21,12 @@ export function AdminLoginPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const authError = params.get('authError');
+    if (authError) {
+      setError(authError);
+    }
+
     async function init() {
       try {
         try {
@@ -86,6 +92,10 @@ export function AdminLoginPage() {
       );
       const popup = window.open(url, 'google_admin_oauth', 'width=520,height=640');
       if (!popup) {
+        if (window.self === window.top) {
+          window.location.assign(url);
+          return;
+        }
         setError('Popup was blocked by your browser. Please allow popups for this site and try again.');
         setSigningIn(false);
         return;

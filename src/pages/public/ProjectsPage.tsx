@@ -35,12 +35,12 @@ export function ProjectsPage({ isPreview = false }: { isPreview?: boolean }) {
       />
 
       <section className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#081121]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-20">
           <p className="text-sm font-medium text-sky-700 dark:text-sky-400">Project Portfolio</p>
-          <h1 className="mt-2 text-3xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-2 text-2xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
             Selected Work &amp; Technical Case Studies
           </h1>
-          <p className="mt-4 text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
             Browse work across web engineering, predictive data analytics, AI automation, and
             electrical power systems.
           </p>
@@ -49,7 +49,7 @@ export function ProjectsPage({ isPreview = false }: { isPreview?: boolean }) {
           <div
             role="tablist"
             aria-label="Filter projects by category"
-            className="mt-8 inline-flex flex-wrap items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-[#0D1B2E] border border-slate-200 dark:border-slate-800"
+            className="mt-6 sm:mt-8 flex sm:inline-flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-[#0D1B2E] border border-slate-200 dark:border-slate-800 overflow-x-auto no-scrollbar max-w-full"
           >
             {CATEGORIES.map((category) => {
               const active = selectedCategory === category;
@@ -60,7 +60,7 @@ export function ProjectsPage({ isPreview = false }: { isPreview?: boolean }) {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
+                  className={`min-h-[40px] px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-medium rounded-lg transition-colors whitespace-nowrap shrink-0 ${
                     active
                       ? 'bg-white dark:bg-[#0A192F] text-slate-900 dark:text-white shadow-sm'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -74,7 +74,7 @@ export function ProjectsPage({ isPreview = false }: { isPreview?: boolean }) {
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project) => (

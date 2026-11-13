@@ -76,22 +76,22 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
       />
 
       <section className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#081121]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-20">
           <p className="text-sm font-medium text-sky-700 dark:text-sky-400">Contact</p>
-          <h1 className="mt-2 text-3xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-2 text-2xl sm:text-4xl font-display font-bold tracking-tight text-slate-900 dark:text-white">
             Let&apos;s Work Together
           </h1>
-          <p className="mt-4 text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
             Share details about your project, business automation idea, data analysis requirement,
             or research collaboration. Messages go directly into my private inbox.
           </p>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
           {/* Contact Form */}
-          <div className="lg:col-span-7 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0D1B2E] p-7 sm:p-10">
+          <div className="lg:col-span-7 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0D1B2E] p-5 sm:p-10">
             <h2 className="text-xl font-display font-bold text-slate-900 dark:text-white">
               Send a Message
             </h2>
@@ -219,7 +219,7 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
               <button
                 type="submit"
                 disabled={submitting}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold hover:opacity-90 disabled:opacity-60 transition-opacity"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto min-h-[44px] px-6 py-3 rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950 text-sm font-semibold hover:opacity-90 disabled:opacity-60 transition-opacity"
               >
                 <Send className="w-4 h-4" />
                 <span>{submitting ? 'Sending Message...' : 'Send Message'}</span>
@@ -229,7 +229,7 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
 
           {/* Direct Channels & Social Links */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0D1B2E] p-7">
+            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0D1B2E] p-5 sm:p-7">
               <h2 className="text-lg font-display font-bold text-slate-900 dark:text-white">
                 Direct Channels &amp; Profiles
               </h2>
@@ -238,19 +238,19 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
               </p>
 
               <div className="mt-6 divide-y divide-slate-200 dark:divide-slate-800 text-sm">
-                <div className="py-3.5">
+                <div className="py-1">
                   <a
                     href={settings?.githubUrl || 'https://github.com/GKA95'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-medium text-sky-700 dark:text-sky-400 hover:underline"
+                    className="inline-flex items-center gap-1.5 min-h-[44px] font-medium text-sky-700 dark:text-sky-400 hover:underline"
                   >
                     <span>GitHub</span>
                     <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                   </a>
                 </div>
 
-                <div className="py-3.5">
+                <div className="py-1">
                   {(() => {
                     const rawLinkedin =
                       settings?.linkedinUrl ||
@@ -263,7 +263,7 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
                         href={linkedinHref}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 font-medium text-sky-700 dark:text-sky-400 hover:underline"
+                        className="inline-flex items-center gap-1.5 min-h-[44px] font-medium text-sky-700 dark:text-sky-400 hover:underline"
                       >
                         <span>LinkedIn</span>
                         <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
@@ -274,13 +274,13 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
 
                 {settings?.contactEmail ? (
                   <div className="py-3.5 flex items-center justify-between gap-4">
-                    <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 shrink-0">
                       <Mail className="w-4 h-4" />
                       <span>Email</span>
                     </span>
                     <a
                       href={`mailto:${settings.contactEmail}`}
-                      className="font-medium text-slate-900 dark:text-white hover:text-sky-700 dark:hover:text-sky-400"
+                      className="font-medium text-slate-900 dark:text-white hover:text-sky-700 dark:hover:text-sky-400 break-all text-right"
                     >
                       {settings.contactEmail}
                     </a>
@@ -289,7 +289,7 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
 
                 {settings?.whatsappNumber ? (
                   <div className="py-3.5 flex items-center justify-between gap-4">
-                    <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 shrink-0">
                       <MessageSquare className="w-4 h-4" />
                       <span>WhatsApp</span>
                     </span>
@@ -300,7 +300,7 @@ export function ContactPage({ isPreview = false }: { isPreview?: boolean }) {
                       className="inline-flex items-center gap-1 font-medium text-slate-900 dark:text-white hover:text-sky-700 dark:hover:text-sky-400"
                     >
                       <span>{settings.whatsappNumber}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
                     </a>
                   </div>
                 ) : null}

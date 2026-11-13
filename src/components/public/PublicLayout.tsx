@@ -36,21 +36,21 @@ export function PublicLayout({
 
       {/* Strict 3-Zone Top Bar Contract */}
       <header className="sticky top-0 z-40 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/90 dark:bg-[#060D1A]/90 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3 sm:gap-8">
           {/* Zone 1: Single-line brand mark */}
           <Link
             to="/"
-            className="flex items-center gap-2.5 text-base sm:text-lg font-display font-bold tracking-tight text-slate-900 dark:text-white whitespace-nowrap shrink-0 focus-visible:outline-2 focus-visible:outline-sky-500 rounded-sm"
+            className="flex items-center gap-2 sm:gap-2.5 text-sm sm:text-lg font-display font-bold tracking-tight text-slate-900 dark:text-white whitespace-nowrap min-w-0 truncate focus-visible:outline-2 focus-visible:outline-sky-500 rounded-sm"
           >
             {settings?.logoUrl ? (
               <img
                 src={settings.logoUrl}
                 alt={brandName}
-                className="h-7 w-7 rounded object-cover"
+                className="h-7 w-7 rounded object-cover shrink-0"
                 referrerPolicy="no-referrer"
               />
             ) : null}
-            <span>{brandName}</span>
+            <span className="truncate">{brandName}</span>
           </Link>
 
           {/* Zone 2: 5 concise single-line navigation links */}
@@ -110,13 +110,13 @@ export function PublicLayout({
         {mobileOpen && (
           <nav
             aria-label="Mobile navigation"
-            className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#060D1A] px-4 py-4 space-y-1"
+            className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-[#060D1A] px-4 py-4 space-y-1.5"
           >
             <NavLink
               to="/"
               onClick={() => setMobileOpen(false)}
               className={({ isActive }) =>
-                `block px-3 py-2.5 rounded-lg text-sm font-medium ${
+                `flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm font-medium ${
                   isActive
                     ? 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white'
                     : 'text-slate-600 dark:text-slate-300'
@@ -131,7 +131,7 @@ export function PublicLayout({
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
                 className={({ isActive }) =>
-                  `block px-3 py-2.5 rounded-lg text-sm font-medium ${
+                  `flex items-center min-h-[44px] px-3.5 py-2.5 rounded-lg text-sm font-medium ${
                     isActive
                       ? 'bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white'
                       : 'text-slate-600 dark:text-slate-300'
@@ -145,7 +145,7 @@ export function PublicLayout({
               <Link
                 to="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="block w-full text-center px-4 py-2.5 text-sm font-medium rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950"
+                className="flex items-center justify-center w-full min-h-[44px] px-4 py-2.5 text-sm font-semibold rounded-lg bg-[#0A192F] text-white dark:bg-sky-500 dark:text-slate-950"
               >
                 Let&apos;s Work Together
               </Link>
